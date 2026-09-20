@@ -1,0 +1,101 @@
+# Time Series — Phase A (Foundation)
+
+1. **Time Series** – Data arranged according to time (e.g., daily XAUUSD closing prices).
+
+2. **Timestamp/DateTime** – Converting a string into a date/time object using `pd.to_datetime()` in pandas.
+
+3. **Extract Year/Month/Day** – Using the `.dt.year`, `.dt.month`, and `.dt.day` accessors.
+
+4. **Time-Based Indexing** – Setting the Date as the index and slicing data like `df['2024-01':'2024-03']`.
+
+5. **Resampling (D/W/M)** – Converting daily data into weekly/monthly data, such as `df.resample('W').mean()`. This is similar to changing the candlestick timeframe.
+
+---
+
+# Phase B — Analysis
+
+6. **% Change / Return** – Measuring how much the price increased or decreased compared to the previous day using `.pct_change()`.
+
+7. **Rolling Window** – Performing calculations repeatedly using a fixed window, such as the last 20 days. This is the foundation of moving averages and volatility calculations.
+
+8. **Moving Average** – The mean of a rolling window. It smooths the price and helps identify trends. Includes **SMA** and **EMA**, concepts commonly used in technical analysis.
+
+9. **Lag / Shift** – Bringing a previous row's value into the current row using `.shift(1)`. For example, finding yesterday's price.
+
+10. **Cumulative Return** – Measuring the total return from the beginning until the current point, including compounding.
+
+11. **Trend** – Understanding whether the price is moving upward, downward, or sideways. This is one of the foundations of technical analysis.
+
+12. **Volatility** – Measuring how much the price or returns fluctuate, commonly using standard deviation.
+
+---
+
+# Phase C — For Time Series ML
+
+13. **Autocorrelation** – Checking whether the current value is related to previous values, such as whether today's price/return is related to yesterday's.
+
+14. **Stationarity** – Checking whether statistical properties such as mean and variance remain relatively stable over time. This is important for many forecasting models. The **ADF (Augmented Dickey-Fuller) test** can be used to check stationarity.
+
+15. **Time-Based Train/Test Split** – Splitting data according to time instead of using a random split. The past is used for training and the future is used for testing. This helps prevent data leakage.
+
+16. **Forecasting Concept** – The general idea of predicting future values based on historical data. Examples include **ARIMA, Prophet, and Machine Learning models**.
+
+17. **Data Leakage in Time Series** – Accidentally using future information while training a model. This is one of the most common mistakes in trading models and must be carefully avoided.
+
+---
+
+# Statistics
+
+## Basic Statistics
+
+1. **Mean** – The average value.
+
+2. **Median** – The middle value when the data is arranged in order. It is less affected by outliers than the mean.
+
+3. **Percentile** – Indicates the percentage of data points that fall below a particular value. For example, the 90th percentile of trading volume.
+
+4. **Variance** – Measures how much the data is spread out around the mean.
+
+5. **Standard Deviation** – The square root of variance. It is more practical and is one of the main tools for measuring volatility.
+
+6. **Distribution (Basic)** – Describes how data is spread or shaped, such as a **normal distribution** or a **skewed distribution**.
+
+7. **Outlier** – An unusually high or low value compared with the rest of the data, such as a sudden price spike during a flash crash.
+
+---
+
+# Relationship
+
+8. **Covariance** – Measures how two variables move together. It mainly shows the direction of their relationship, while its magnitude is not as easy to interpret.
+
+9. **Correlation** – A normalized measure of covariance that ranges from **-1 to +1**. For example, measuring the correlation between BTC and ETH.
+
+10. **Correlation vs Causation** – Two variables moving together does not necessarily mean that one causes the other. Understanding this helps avoid incorrect conclusions.
+
+---
+
+# Trading Quant
+
+11. **Return** – The simple percentage gain or loss from a trade or investment.
+
+12. **Log Return (Basic)** – Calculated as:
+
+`ln(price_t / price_t-1)`
+
+It is mathematically convenient for compounding and is commonly used in quantitative finance.
+
+13. **Volatility** – The standard deviation of returns. It is often **annualized** when analyzing financial markets.
+
+14. **Risk/Reward** – The ratio between potential loss and potential profit. This is commonly used when evaluating trading setups.
+
+15. **Drawdown** – The decline from a previous peak to a subsequent low. Maximum drawdown is critical for understanding risk management.
+
+16. **Win Rate** – The percentage of trades that are profitable.
+
+17. **Expectancy** – The average amount you can expect to gain or lose per trade based on factors such as win rate and risk/reward. It helps evaluate whether a trading strategy has a positive expected outcome.
+
+18. **Sharpe Ratio (Basic)** – A measure of risk-adjusted return. It evaluates how much return was generated relative to the amount of risk taken.
+
+19. **Z-Score (Basic)** – Measures how many standard deviations a value is away from the mean. It is commonly used in mean-reversion strategies.
+
+20. **Probability (Basic)** – The likelihood that an event will occur. It forms an important foundation for backtesting and calculating trading expectancy.
