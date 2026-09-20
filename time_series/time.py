@@ -100,7 +100,9 @@ ts["volatility_annualized"] = ts["volatility_20d"] * np.sqrt(252)
 print("\n[12] 20d volatility (annualized, tail):\n", ts["volatility_annualized"].tail(3))
 
 
-# ---- Phase C: Time Series for ML ---------------------------------------
+# ---- Phase C: Time Series for ML 
+
+
 
 # 13. Autocorrelation (basic) — is today's return related to yesterday's?
 autocorr_lag1 = ts["pct_change"].autocorr(lag=1)
@@ -145,7 +147,7 @@ print("     Any feature/scaler must be fit on train only, then applied to test."
 
 # ======================================================================
 # PART 2 — STATISTICS
-# ======================================================================
+
 
 prices = ts["close"]
 rets = ts["pct_change"].dropna()
