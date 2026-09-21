@@ -68,6 +68,8 @@ print("[5] Monthly resample (first 3):\n", monthly.head(3))
 
 # ---- Phase B: Analysis -------------------------------------------------
 
+
+
 # 6. Percentage Change / Return
 ts["pct_change"] = ts["close"].pct_change()
 print("\n[6] Daily % change:\n", ts["pct_change"].head(5))
@@ -101,6 +103,9 @@ print("\n[12] 20d volatility (annualized, tail):\n", ts["volatility_annualized"]
 
 
 # ---- Phase C: Time Series for ML 
+
+
+
 
 
 
