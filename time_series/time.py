@@ -104,17 +104,16 @@ print("\n[12] 20d volatility (annualized, tail):\n", ts["volatility_annualized"]
 
 # ---- Phase C: Time Series for ML 
 
-
-
-
-
-
 # 13. Autocorrelation (basic) — is today's return related to yesterday's?
 autocorr_lag1 = ts["pct_change"].autocorr(lag=1)
 print("\n[13] Autocorrelation (lag 1) of returns:", round(autocorr_lag1, 4))
 
 # 14. Stationarity (basic) — check with Augmented Dickey-Fuller if available,
 #     else fallback to a simple rolling-mean/variance stability check.
+
+
+
+
 try:
     from statsmodels.tsa.stattools import adfuller
     adf_result = adfuller(ts["close"].dropna())
@@ -129,6 +128,10 @@ except ImportError:
     second_half_std = ts["close"].iloc[n_days // 2:].std()
     print("     std(first half):", round(first_half_std, 2), "| std(second half):", round(second_half_std, 2))
     print("     Big difference => likely non-stationary (raw price series usually is).")
+
+
+
+
 
 # 15. Time-based Train/Test Split (NEVER random split for time series)
 split_point = int(n_days * 0.8)
